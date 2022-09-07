@@ -33,5 +33,3 @@ batterySensorData(list<string>& sensor1,list<string>& sensor2,list<string>& outp
         }
     }
 }
-
-}
