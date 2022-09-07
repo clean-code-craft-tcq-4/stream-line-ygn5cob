@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <list>
+using namespace std;
 
 bool TestSensorData(list<string>& sensor1,list<string>& sensor2);
 void AbatterySensorData(list<string>& sensor1,list<string>& sensor2);
