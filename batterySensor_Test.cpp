@@ -22,6 +22,6 @@ TEST_CASE("COMPARE SENSOR OUTPUT") {
     while (getline(inOne, s))
         lines_2.push_back(s);
 
-    AbatterySensorData(lines_1, lines_2);
+    batterySensorData(lines_1, lines_2,AbatterysensorOut);
     REQUIRE(TestSensorData(lines_1, lines_2) == true);
 }
