@@ -12,6 +12,7 @@ TEST_CASE("COMPARE SENSOR OUTPUT") {
     list<string> lines_2;
     string sensor1_output = "sensor1_output.txt";
     string sensor2_output = "sensor2_output.txt";
+    string s;
     ifstream inOne(sensor1_output);
     ifstream inTwo(sensor2_output); 
 
