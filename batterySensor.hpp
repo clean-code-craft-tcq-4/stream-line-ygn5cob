@@ -16,6 +16,6 @@ const int batterysensor2[50] = {10,20,30,40,50,60,70,80,90,100,110,120,130,140,1
 
 bool TestSensorData(int sensor1[], int sensor2[]);
 void AbatterySensorData(int sensor1[],int sensor2[]);
-void EbatterySensorData(int sensor1[], int sensor2[]);
+//void EbatterySensorData(int sensor1[], int sensor2[]);
 
 #endif
