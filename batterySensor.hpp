@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include <list>
 
 bool TestSensorData(list<string>& sensor1,list<string>& sensor2);
 void AbatterySensorData(list<string>& sensor1,list<string>& sensor2);
