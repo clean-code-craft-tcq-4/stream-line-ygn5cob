@@ -3,8 +3,11 @@
 #include "batterySensor.hpp"
 #include <assert.h>
 using namespace std;
+list<string> AbatterysensorOut, EbatterysensorOut;
 
 bool TestSensorData(list<string>& sensor1,list<string>& sensor2) {
+   
+    batterySensorData(lines_1, lines_2,AbatterysensorOut);
    
     batterySensorData(sensor1, sensor2,EbatterysensorOut);
 for(list<string>::iterator itr=AbatterysensorOut.begin();itr!=AbatterysensorOut.end(); ++itr)
