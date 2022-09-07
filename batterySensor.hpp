@@ -11,7 +11,7 @@
 using namespace std;
 
 bool TestSensorData(list<string>& sensor1,list<string>& sensor2);
-void AbatterySensorData(list<string>& sensor1,list<string>& sensor2);
-void EbatterySensorData(list<string>& sensor1, list<string>& sensor2);
+void batterySensorData(list<string>& sensor1,list<string>& sensor2,list<string>& output);
+//void EbatterySensorData(list<string>& sensor1, list<string>& sensor2);
 
 #endif
