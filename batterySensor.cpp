@@ -4,6 +4,9 @@
 #include <assert.h>
 using namespace std;
 
+const int NUMBER_OF_SAMPLES = 50;
+std::stringstream AbatterysensorOut[NUMBER_OF_SAMPLES], EbatterysensorOutput[NUMBER_OF_SAMPLES];
+
 void EbatterySensorData(int sensor1[],int sensor2[]) {
     
     int index, buffer_index = 0;
@@ -42,9 +45,12 @@ void AbatterySensorData(int sensor1[],int sensor2[]) {
 
 bool TestSensorData(int sensor1[],int sensor2[]) {
    
-        if(AbatterysensorOut[index].str() != EbatterysensorOutput[index].str()) {
+    EbatterySensorData(sensor1, sensor2);
+    for(int  index= 0; index < NUMBER_OF_SAMPLES; index++){
+        if(AbatterysensorOutput[index].str() != EbatterysensorOutput[index].str()) {
             return false;
             break;
         }
+    }
     return true;
 }

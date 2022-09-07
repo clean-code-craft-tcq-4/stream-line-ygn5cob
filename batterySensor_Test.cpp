@@ -8,6 +8,6 @@
 using namespace std;
 
 TEST_CASE("PASSING TEST CASE 1") {
-    CallSender(batterysensor1, batterysensor2);
+    AbatterySensorData(batterysensor1, batterysensor2);
     REQUIRE(TestSensorData(batterysensor1, batterysensor2) == true);
 }
