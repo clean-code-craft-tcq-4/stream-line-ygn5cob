@@ -7,7 +7,20 @@
 #include "batterySensor.hpp"
 using namespace std;
 
-TEST_CASE("PASSING TEST CASE 1") {
-    AbatterySensorData(batterysensor1, batterysensor2);
-    REQUIRE(TestSensorData(batterysensor1, batterysensor2) == true);
+TEST_CASE("COMPARE SENSOR OUTPUT") {
+    list<string> lines_1;
+    list<string> lines_2;
+    string sensor1_output = "sensor1_output.txt";
+    string sensor2_output = "sensor2_output.txt";
+    ifstream inOne(sensor1_output);
+    ifstream inTwo(sensor2_output); 
+
+    while (getline(inOne, s))
+        lines_1.push_back(s);
+    
+    while (getline(inOne, s))
+        lines_2.push_back(s);
+
+    AbatterySensorData(lines_1, lines_2);
+    REQUIRE(TestSensorData(lines_1, lines_2) == true);
 }
