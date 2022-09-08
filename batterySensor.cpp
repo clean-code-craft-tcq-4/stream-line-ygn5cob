@@ -25,11 +25,13 @@ for(list<string>::iterator itr=AbatterysensorOut.begin();itr!=AbatterysensorOut.
 void batterySensorData(list<string>& sensor1,list<string>& sensor2,list<string>& output){
    
     int index, buffer_index = 0;
-     cout<<"sensor ouput List:";
+     cout<<"sensor ouput List:"<<"\n";
     for(list<string>::iterator itr=sensor1.begin();itr!=sensor1.end(); ++itr)
     {
+        cout<<"sensor ouput List:Entering first for"<<*itr<<"\n";
         for(list<string>::iterator it2 = sensor2.begin(); it2!=sensor2.end(); ++it2)
         {
+            cout<<"sensor ouput List:Entering second for:"<<*it2<<"\n";
             string sensor_output = *itr + ":" + *it2;
             output.push_back(sensor_output); 
             cout<<sensor_output<<"\n";
