@@ -19,7 +19,7 @@ TEST_CASE("COMPARE SENSOR OUTPUT") {
     while (getline(inOne, s))
         lines_1.push_back(s);
     
-    while (getline(inOne, s))
+    while (getline(inTwo, s))
         lines_2.push_back(s);
         batterySensorData(lines_1, lines_2,AbatterysensorOut);
     
