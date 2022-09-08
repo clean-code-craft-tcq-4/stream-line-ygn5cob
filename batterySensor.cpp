@@ -31,6 +31,8 @@ void batterySensorData(list<string>& sensor1,list<string>& sensor2,list<string>&
         {
             string sensor_output = *itr + ":" + *it2;
             output.push_back(sensor_output);
+            print(sensor1);
+            print(sensor2);  
         }
     }
 }
