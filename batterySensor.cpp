@@ -32,7 +32,7 @@ void batterySensorData(list<string>& sensor1,list<string>& sensor2,list<string>&
         {
             string sensor_output = *itr + ":" + *it2;
             output.push_back(sensor_output); 
-            cout<<sensor_output<<\n;
+            cout<<sensor_output<<"\n";
         }
     }
 }
