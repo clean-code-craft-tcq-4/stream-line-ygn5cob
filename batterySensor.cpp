@@ -8,17 +8,17 @@ list<string> AbatterysensorOut, EbatterysensorOut;
 bool TestSensorData(list<string>& sensor1,list<string>& sensor2) {
       
     batterySensorData(sensor1, sensor2,EbatterysensorOut);
-for(list<string>::iterator itr=AbatterysensorOut.begin();itr!=AbatterysensorOut.end(); ++itr)
+    list<string>::iterator itr = AbatterysensorOut.begin();
+    list<string>::iterator it2 = EbatterysensorOut.begin()
+      
+for(;itr!=AbatterysensorOut.end(),it2!=EbatterysensorOut.end(); ++itr,++it2)
  {
-   for(list<string>::iterator it2 = EbatterysensorOut.begin(); it2!=EbatterysensorOut.end(); ++it2)
-        {
-                if(*itr != *it2)   // is this correct 
-                {
-                    return false;
-                    break;
-                }
-        }
- }
+     if(*itr != *it2)   // is this correct 
+     {
+         return false;
+         break;
+     }
+  }
     return true;
 }
 
@@ -26,15 +26,13 @@ void batterySensorData(list<string>& sensor1,list<string>& sensor2,list<string>&
    
     int index, buffer_index = 0;
      cout<<"sensor ouput List:"<<"\n";
-    for(list<string>::iterator itr=sensor1.begin();itr!=sensor1.end(); ++itr)
+    list<string>::iterator itr = sensor1.begin();
+    list<string>::iterator it2 = sensor2.begin()
+      
+    for(;itr!=sensor1.end(),it2!=sensor2.end(); ++itr,++it2)
     {
-        cout<<"sensor ouput List:Entering first for"<<*itr<<"\n";
-        for(list<string>::iterator it2 = sensor2.begin(); it2!=sensor2.end(); ++it2)
-        {
-            cout<<"sensor ouput List:Entering second for:"<<*it2<<"\n";
             string sensor_output = *itr + ":" + *it2;
             output.push_back(sensor_output); 
             cout<<sensor_output<<"\n";
-        }
     }
 }
