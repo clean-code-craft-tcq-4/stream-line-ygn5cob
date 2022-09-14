@@ -1,46 +1,66 @@
-#include <algorithm>
-#include "helper.hpp"
+#include "Data_Receiver.h"
+#include "batterySensor.hpp"
 
-float getAvg(vector<int> sensorValueList, int noOfEntries)
+void readDataFromConsole(float* Temperature, float* SOC)
 {
-    float total = 0;
-    for(int sensorDataItr = TOTAL_COUNT-noOfEntries; sensorDataItr < TOTAL_COUNT; sensorDataItr++)
+  for(int index = 0; index < readings_count; index++)
+  {
+    scanf("%f\t %f",&Temperature[index],&SOC[index]);
+  }
+}
+
+float getMaxValue(float *sensorparameter)
+{
+  float maximumvalue = sensorparameter[0];
+  for(int index = 0; index < readings_count; index++)
+  {
+    if(sensorparameter[index] > maximumvalue)
     {
-        total += sensorValueList[sensorDataItr];
+      maximumvalue = sensorparameter[index];
     }
-    return (total/noOfEntries);
+  }
+  return maximumvalue;
 }
 
-int getMinValue(vector<int> sensorValueList)
+float getMinValue(float *sensorparameter)
 {
-    return *min_element(sensorValueList.begin(),sensorValueList.end());
-}
-
-int getMaxValue(vector<int> sensorValueList)
-{
-    return *max_element(sensorValueList.begin(),sensorValueList.end());
-}
-
-sensorStatistics compute(sensorData value)
-{
-    sensorStatistics stats;
-    stats.chargeRateAvg = getAvg(value.chargeRateList, TOTAL_COUNT);
-    stats.tempAvg = getAvg(value.temperatureValueList, TOTAL_COUNT);
-    stats.minChargeRate = getMinValue(value.chargeRateList);
-    stats.minTemp = getMinValue(value.temperatureValueList);
-    stats.maxChargeRate = getMaxValue(value.chargeRateList);
-    stats.maxTemp = getMaxValue(value.temperatureValueList);
-    return stats;
-}
-
-sensorStatistics getSensorValueStatis(sensorInterface &dataReader,displaySensorData &sensorDataPrinter)
-{
-    sensorData sensorValue=dataReader.getSensorDataFromConsole();
-    sensorStatistics sensorDataStats;
-    if(!sensorValue.chargeRateList.empty() && !sensorValue.temperatureValueList.empty())
+  float minimumvalue = sensorparameter[0]; 
+  for(int index = 0; index < readings_count; index++)
+  {
+    if(sensorparameter[index] < minimumvalue)
     {
-    	sensorDataStats=compute(sensorValue);
-    	sensorDataPrinter.displayDataonConsole(sensorDataStats);
+      minimumvalue = sensorparameter[index];
     }
-    return sensorDataStats;
+  }
+  return minimumvalue;
+}
+
+float calculateSimpleMovingAverage(float *sensorparameter)
+{
+  float SMAvalue = 0.0;
+  float total = 0.0;
+  for(int index = (readings_count-5); index < readings_count; index++)
+  {
+    total += sensorparameter[index];
+  }
+  SMAvalue = total/5; 
+  return SMAvalue;
+}
+
+int printReceivedDataToConsole(float *sensorparameter, float maxvalue, float minvalue, float SMA)
+{
+  printf("Data received from sender\n");
+  for(int index = 0; index < readings_count; index++)
+  {
+    printf("%f\n",sensorparameter[index]);
+  }
+  printf("Maximum value: %f, Minimum value: %f, SimpleMovingAverage of last 5 values: %f\n",maxvalue,minvalue,SMA);  
+  return 1;
+}
+
+void receiveAndProcessSensorData(float* Temperature, float* SOC)
+{
+  readDataFromConsole(Temperature,SOC);
+  printReceivedDataToConsole(Temperature,getMaxValue(Temperature),getMinValue(Temperature),calculateSimpleMovingAverage(Temperature));
+  printReceivedDataToConsole(SOC,getMaxValue(SOC),getMinValue(SOC),calculateSimpleMovingAverage(SOC));
 }
