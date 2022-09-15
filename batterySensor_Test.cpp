@@ -22,7 +22,7 @@ TEST_CASE("COMPARE SENSOR OUTPUT") {
     while (getline(inTwo, s))
         lines_2.push_back(s);
     
-    \\cout<<"\n Testing sensor output before sending \n";  
+    //cout<<"\n Testing sensor output before sending \n";  
     batterySensorData(lines_1, lines_2,AbatterysensorOut);
     
     REQUIRE(TestSensorData(lines_1, lines_2) == true);
