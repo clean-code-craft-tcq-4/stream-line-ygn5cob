@@ -9,7 +9,7 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   float SOC_value[readings_count] = {0};
   float observedMaxValue, observedMinValue, observedSMAValue, expectedMaxValue, expectedMinValue, expectedSMAValue;
   receiveAndProcessSensorData(&Temperature_value[0],&SOC_value[0]);
-  float expectedoutput[2][2] = {{10,10}, {20.2,2}};
+  float expectedoutput[2][2] = {{10,10}, {11,2}};
   for(int i=0;i<2;i++)
   {
     REQUIRE(Temperature_value[i] == expectedoutput[i][0]);
