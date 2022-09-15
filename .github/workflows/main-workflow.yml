@@ -19,7 +19,7 @@ jobs:
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testsender batterySensor_Test.cpp batterySensor.cpp
     
     - name: build receiver 
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testreceiver Test_Data_Receiver.cpp data_receiver.c
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testreceiver Test_Data_Receiver.cpp Data_Receiver.c
 
     - name: run sender
       run: ./testsender
