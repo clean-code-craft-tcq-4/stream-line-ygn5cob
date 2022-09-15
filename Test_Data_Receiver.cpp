@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include "test/catch.hpp"
 #include "Data_Receiver.h"
-#include "Data_Sender.hpp"
+#include "batterySensor.hpp"
 
 TEST_CASE("Tests to check whether sensor data is read from console and also to check whether correct Max, Min and SMA values of sensor parameters are printed on console") 
 {
